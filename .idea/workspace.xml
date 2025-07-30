@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e9d8997-c9b9-4701-8827-70e2a13d8f63" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/dio/model/AccountWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/dio/model/AccountWallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/dio/model/Investiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/dio/model/Investment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/dio/model/InvestimentWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/dio/model/InvestmentWallet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +47,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.dio.expcetion" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.dio.Main" />
