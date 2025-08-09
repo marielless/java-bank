@@ -55,8 +55,9 @@ public class InvestmentRepository {
         return wallet;
     }
 
-    public void updateAmount (final long percent){
-        wallets.forEach(w -> w.updateAccount(percent));
+    public void updateAmount (){
+
+        wallets.forEach(w -> w.updateAccount(w.getInvestment().tax()));
     }
 
     public Investment findById(final long id){
@@ -81,7 +82,7 @@ public class InvestmentRepository {
         return this.investments;
     }
 
-    public List<InvestmentWallet> wallets(){
+    public List<InvestmentWallet> listWallets(){
         return this.wallets;
     }
  }
