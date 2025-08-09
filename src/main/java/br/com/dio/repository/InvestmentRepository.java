@@ -27,11 +27,12 @@ public class InvestmentRepository {
     }
 
     public InvestmentWallet initInvestment(final AccountWallet account, final long id){
-        var accountsInUse = wallets.stream().map(InvestmentWallet :: getAccount).toList();
+        if (!wallets.isEmpty()) {
+            var accountsInUse = wallets.stream().map(InvestmentWallet::getAccount).toList();
             if (accountsInUse.contains(account)) {
                 throw new AccountWithInvestmentException("A conta '" + account + "'já possui investimento");
             }
-
+        }
         var investment = findById(id);
         checkFundsForTransaction(account, investment.initialFunds());
         var wallet = new InvestmentWallet(investment, account, investment.initialFunds());

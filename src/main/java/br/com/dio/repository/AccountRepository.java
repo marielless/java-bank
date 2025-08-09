@@ -1,17 +1,27 @@
 package br.com.dio.repository;
 
 import br.com.dio.expcetion.AccountNotFoundException;
+import br.com.dio.expcetion.PixInUseException;
 import br.com.dio.model.AccountWallet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static br.com.dio.repository.CommonsRepository.checkFundsForTransaction;
 
 public class AccountRepository {
 
-    private List<AccountWallet> accounts;
+    private final List<AccountWallet> accounts = new ArrayList<>();
 
     public AccountWallet create(final List<String> pix, final long initialFunds){
+        if (accounts.isEmpty()) {
+            var pixInUse = accounts.stream().flatMap(a -> a.getPix().stream()).toList();
+            for (var p : pix) {
+                if (pixInUse.contains(p)) {
+                    throw new PixInUseException("O pix '" + p + "já está em uso");
+                }
+            }
+        }
         var newAccount = new AccountWallet(initialFunds, pix);
         accounts.add(newAccount);
         return newAccount;
@@ -37,12 +47,13 @@ public class AccountRepository {
         target.addMoney(source.reduceMoney(amount),source.getService(), mensage);
     }
 
-    private AccountWallet findByPix(final String pix){
+    public AccountWallet findByPix(final String pix){
         return accounts.stream()
                 .filter(a -> a.getPix().contains(pix))
                 .findFirst()
                 .orElseThrow(() -> new AccountNotFoundException("A conta com a chave pix '" + pix + "' não existe ou foi encerrada"));
     }
+
 
     public List<AccountWallet> list() {
         return this.accounts;
